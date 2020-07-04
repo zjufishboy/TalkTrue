@@ -29,3 +29,10 @@ A evaluation system for teacher and courses in ZJU. 内网版浙大查老师（C
 课程评分就直接是开课的每个老师的课程评分。
 
 这么设计的考量是因为有的老师可能不适合开其中一门课，但另外一门课讲的很好，我不希望这种情况的老师被埋没。
+
+## 项目更新记录
+
+2020.7.5 1:18:24 项目技术路线制定
+
+> 打算采用React+React-router-dom+mobx的技术路线，因为这是我最近比较熟悉的一个技术框架
+> 打包使用webpack和一堆乱七八糟的loader+plugin,具体自己在packages.json里看吧。
