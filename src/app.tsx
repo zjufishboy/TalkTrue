@@ -8,13 +8,21 @@ import { Home } from "./pages/home";
 import './app.less'
 import { Mobile } from "./component/mobile";
 import { Search } from "./pages/search";
+import {Header} from '@/component/header'
+import {Footer} from '@/component//footer'
+import RootStore,{Provider}  from '@/store/rootStore'
+import i18n from "./i18n/i18n";
 
 export const App:React.FC=()=>{
     return (
         <div
             className="appOutSide"
         >
+            <Provider value={RootStore}>
             <Mobile height={667} width={375}>
+                <Header height={40}>
+                    {i18n.intl(RootStore.appStore.pageNow)}
+                </Header>
                 <Router>
                     <Switch>
                         <Route path="/" exact>
@@ -25,8 +33,11 @@ export const App:React.FC=()=>{
                         </Route>
                     </Switch>
                 </Router>
+                <Footer height={40}>
+                    底部
+                </Footer>
             </Mobile>
-            
+            </Provider>
         </div>
     )
 }

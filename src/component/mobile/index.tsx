@@ -5,7 +5,7 @@ interface MobileProps{
     /**
      * 子组件
      */
-    children:ReactChild;
+    children:ReactChild[];
     /**
      * 宽高
      */

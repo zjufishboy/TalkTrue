@@ -1,7 +1,7 @@
 import React, { ReactChild } from 'react';
 import './index.less'
 
-interface HeaderProps{
+interface FooterProps{
     /**
      * 子组件
      */
@@ -12,17 +12,17 @@ interface HeaderProps{
     height:number
 }
 
-export const Header:React.FC<HeaderProps> =({children,height}:HeaderProps)=>{
+export const Footer:React.FC<FooterProps> =({children,height}:FooterProps)=>{
     return (
-        <div className="headerOutSide">
+        <div className="footerOutSide">
             <div
-                className="header front"
+                className="footer front"
                 style={{height}}
             >
                 {children}
             </div>
             <div
-                className="header"
+                className="footer"
                 style={{height}}
             />
         </div>
