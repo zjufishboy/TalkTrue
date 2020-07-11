@@ -12,12 +12,30 @@ interface LogoProps{
      */
     height:number;
     width:number;
+    /**
+     * 是否圆形
+     */
+    isCircle?:boolean;
+    /**
+     * 是否有边框
+     */
+    isBordered?:boolean
 }
-
-export const Logo:React.FC<LogoProps>=({src=LogoDefault,height,width}:LogoProps)=>{
+/**
+ * 用于放置图片的图片处理组件
+ */
+export const Logo:React.FC<LogoProps>=({src=LogoDefault,height,width,isCircle,isBordered}:LogoProps)=>{
+    const getClassName=()=>{
+        const className=["logo"];
+        if(isCircle)
+            className.push("logoCircle");
+        if(isBordered)
+            className.push("logoWithBorder");
+        return className.join(" ");
+    }
     return (
         <div 
-            className="logo"
+            className={getClassName()}
             style={{height,width,backgroundImage:`url(${src})`}}
         />
     )

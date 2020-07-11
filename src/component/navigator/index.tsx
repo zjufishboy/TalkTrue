@@ -1,6 +1,6 @@
-import React, { ReactChild } from 'react';
+import React from 'react';
 import './index.less'
-import FA  from 'react-fontawesome';
+// import { TTIcon } from '../icon';
 interface NavItem{
     /**
      * 选项
@@ -26,7 +26,7 @@ export const NavItemFC:React.FC<NavItemProps>=({option:{name,icon}}:NavItemProps
             <div
                 className="navigatorItemIcon"
             >
-                <FA name={icon}/>
+                {/* <TTIcon name={icon}/> */}
             </div>
             <div
                 className="navigatorItemName"
@@ -36,7 +36,9 @@ export const NavItemFC:React.FC<NavItemProps>=({option:{name,icon}}:NavItemProps
         </div>
     );
 }
-
+/**
+ * 导航组件：暂时只有底部一种选择
+ */
 export const Nav:React.FC<NavProps> =({options}:NavProps)=>{
     return (
         <div

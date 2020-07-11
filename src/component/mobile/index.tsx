@@ -12,7 +12,9 @@ interface MobileProps{
     height:number;
     width:number;
 }
-
+/**
+ * 手机尺寸组件
+ */
 export const Mobile:React.FC<MobileProps> =({children,height,width}:MobileProps)=>{
     return (
         <div

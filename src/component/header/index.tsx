@@ -11,7 +11,9 @@ interface HeaderProps{
      */
     height:number
 }
-
+/**
+ * 固定在顶部的容器
+ */
 export const Header:React.FC<HeaderProps> =({children,height}:HeaderProps)=>{
     return (
         <div className="headerOutSide">

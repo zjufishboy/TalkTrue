@@ -11,7 +11,9 @@ interface FooterProps{
      */
     height:number
 }
-
+/**
+ * 固定在底部的容器组件
+ */
 export const Footer:React.FC<FooterProps> =({children,height}:FooterProps)=>{
     return (
         <div className="footerOutSide">

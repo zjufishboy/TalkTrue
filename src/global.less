@@ -314,7 +314,21 @@
 	position: relative;
 }
 .CBGImage{
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+}
+.circle{
+	border-radius: 50%;
+}
+.border(@size,@color){
+	border:@size solid @color;
+}
+
+@B:black;
+@G:rgb(166, 166, 166);
+@linkColor:#008cff;
+
+*{
+	font-family: "STKaiTi","KaiTi";
 }

@@ -45,6 +45,10 @@ A evaluation system for teacher and courses in ZJU. 内网版浙大查老师（C
 
 > 干活速度实在不行，分的模块有点多，今天把状态存储和i18n文案做了一下。页面设计欠缺，明天晚上再看看。
 
+2020.7.12 搜索页面完成
+> webpack真是个煞笔玩意，按需加载死活学不会的我在考虑不在项目里使用开源icon了。我人傻了。
+
 ## 项目目前预览
 
 ![设计稿0.2.1](./src/image/sample.png)
+![搜索页](./src/image/sample2.png)

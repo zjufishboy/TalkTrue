@@ -21,6 +21,15 @@ class I18nManager{
         "PAGE_INTRO":{
             "zh-cn":"介绍"
         },
+        "hotSearch":{
+            "zh-cn":"热门搜索"
+        },
+        "history":{
+            "zh-cn":"搜索历史"
+        },
+        "clear":{
+            "zh-cn":"清空"
+        }
     }
     i18nSetting="zh-cn";
     intl:(name:string)=>string=(name:string)=>this.i18n[name][this.i18nSetting];

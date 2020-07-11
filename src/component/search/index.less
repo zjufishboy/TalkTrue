@@ -2,19 +2,22 @@
 
 .search{
     width:100%;
-    min-height: 40px;
+    min-height: 60px;
+    padding:0 10px;
+    box-sizing: border-box;
 }
 
 .searchHead{
     .ccFlexColumn();
     .search();
-    background-color: #fafafa;
+    background-color: #efefef;
     .searchHeadContent{
         cursor: pointer;
         .ccFlexColumn();
         box-shadow: 0px 0px 1px #cfcfcf;
         width:96%;
         height:90%;
+        max-height: 36px;
         border-radius: 20px;
         background-color: white;
         color:black;
@@ -29,7 +32,11 @@
         cursor: pointer;
         width:60px;
         height:40px;
-        color:#008cff;
+        color:@linkColor;
+        background: transparent;
+    }
+    .cancel:active{
+        background: transparent;
     }
     .searchContent{
         cursor: pointer;
@@ -39,6 +46,7 @@
         flex:1;
         width:96%;
         height:90%;
+        max-height: 36px;
         border-radius: 20px;
         border:none;
         outline: none;

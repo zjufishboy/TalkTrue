@@ -1,9 +1,24 @@
 import React, { useState, KeyboardEvent, createRef } from "react";
 import "./index.less";
 import { useHistory } from "react-router-dom";
-import { Logo } from "../logo";
+import { voidFunction } from "@/constants/types";
+import { debounce } from "@/utils/other";
 
-export const SearchBar: React.FC = () => {
+interface SearchBarProps{
+  /**
+   * 取消函数
+   */
+  cancel:voidFunction;
+  /**
+   * 搜索函数
+   */
+  handler?:(content:string)=>void;
+}
+
+/**
+ * 正式的搜索条
+ */
+export const SearchBar: React.FC<SearchBarProps> = ({cancel,handler}:SearchBarProps) => {
   const [isNothing, setIsNothing] = useState(true);
   const refInput = createRef<HTMLInputElement>();
   const handleFocus = () => {
@@ -22,14 +37,17 @@ export const SearchBar: React.FC = () => {
     }
   }
   const handleEnter=(e:KeyboardEvent<HTMLDivElement>)=>{
-    console.log(e.which);
     if(e.which==32||e.which==13){
       let str=refInput.current.value;
       str= str.replace(/[\r\n]/g,"");   
       str=str.replace(/\s+/g,"");   
       refInput.current.value=str;
-      console.log("回车或空格",refInput.current.value)
     }
+  }
+  const Cancel=debounce(cancel,100);
+  const handleSearch=()=>{
+    handler(refInput.current.value);
+    refInput.current.value="";
   }
   return (
     <div className="searchBar">
@@ -44,14 +62,18 @@ export const SearchBar: React.FC = () => {
         style={{color:isNothing?"#a6a6a6":"#222222"}}
       />
       <div 
-        className="cancel">
+        className="cancel"
+        onClick={isNothing?Cancel:handleSearch}
+      >
         {isNothing?"取消":"搜索"}
       </div>
     </div>
   );
 };
 
-
+/**
+ * 虚假的引导搜索条
+ */
 export const SearchHead: React.FC = () => {
   const history = useHistory();
   const handleClick = () => {
@@ -65,3 +87,4 @@ export const SearchHead: React.FC = () => {
     </div>
   );
 };
+

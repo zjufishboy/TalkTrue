@@ -1,0 +1,36 @@
+@import '@/global.less';
+
+.card{
+    margin:8px 10px;
+    width:calc(100% - 20px);
+    background-color: white;
+    border-radius: 10px;
+    padding:0 4px;
+    box-sizing: border-box;
+    color:@B;
+    .cardTitle{
+        box-sizing: border-box;
+        padding:0px 10px;
+        height: 18px;
+        margin:10px 0;
+        width:100%;
+        .bcFlexRow();
+    }
+    .keywordBar{
+        width:100%;
+        margin:10px 0;
+        display: flex;
+        flex-wrap: wrap;
+        .keyword{
+            color:@G;
+            box-sizing: border-box;
+            width:auto;
+            height:28px;
+            line-height: 20px;
+            border-radius: 14px;
+            background-color: #efefef;
+            padding:2px 14px;
+            margin:2px 4px;
+        }
+    }
+}

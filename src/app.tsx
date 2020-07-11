@@ -1,19 +1,23 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import {
     BrowserRouter as Router,
     Switch,
     Route
   } from "react-router-dom";
-import { Home } from "./pages/home";
+import Home from "./pages/home";
+import Search from "./pages/search";
 import './app.less'
 import { Mobile } from "./component/mobile";
-import { Search } from "./pages/search";
 import {Header} from '@/component/header'
 import {Footer} from '@/component//footer'
 import RootStore,{Provider}  from '@/store/rootStore'
 import i18n from "./i18n/i18n";
+import { observer } from "mobx-react";
 
-export const App:React.FC=()=>{
+const App:React.FC=()=>{
+    useEffect(()=>{
+        RootStore.appStore.fetchHistory();
+    })
     return (
         <div
             className="appOutSide"
@@ -41,4 +45,6 @@ export const App:React.FC=()=>{
         </div>
     )
 }
+
+export default observer(App);
 //这个文件是管理应用路径用的
