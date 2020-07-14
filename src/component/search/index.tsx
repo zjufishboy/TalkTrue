@@ -13,18 +13,23 @@ interface SearchBarProps{
    * 搜索函数
    */
   handler?:(content:string)=>void;
+  /**
+   * 重新搜索函数
+   */
+  reset:voidFunction
 }
 
 /**
  * 正式的搜索条
  */
-export const SearchBar: React.FC<SearchBarProps> = ({cancel,handler}:SearchBarProps) => {
+export const SearchBar: React.FC<SearchBarProps> = ({cancel,handler,reset}:SearchBarProps) => {
   const [isNothing, setIsNothing] = useState(true);
   const refInput = createRef<HTMLInputElement>();
   const handleFocus = () => {
     if (isNothing) {
       setIsNothing(false);
     }
+    reset();
   }
   const handleBlur = () => {
     if (refInput.current && refInput.current.value === "") {
@@ -47,7 +52,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({cancel,handler}:SearchBarPr
   const Cancel=debounce(cancel,100);
   const handleSearch=()=>{
     handler(refInput.current.value);
-    refInput.current.value="";
+    // refInput.current.value="";
   }
   return (
     <div className="searchBar">

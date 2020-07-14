@@ -11,6 +11,8 @@ module.exports = webpackMerge(common, {
     publicPath: '/',
     compress: true,
     port: 9876,
-    historyApiFallback: true
+    historyApiFallback: {
+      index:"/"
+    }
   },
 });

@@ -9,14 +9,18 @@ interface FooterProps{
     /**
      * 高
      */
-    height:number
+    height:number;
+    /**
+     * 是否固定
+     */
+    fix?:boolean
 }
 /**
  * 固定在底部的容器组件
  */
-export const Footer:React.FC<FooterProps> =({children,height}:FooterProps)=>{
+export const Footer:React.FC<FooterProps> =({children,height,fix}:FooterProps)=>{
     return (
-        <div className="footerOutSide">
+        <div className={`footerOutSide`}>
             <div
                 className="footer front"
                 style={{height}}

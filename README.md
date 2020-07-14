@@ -10,9 +10,9 @@ A evaluation system for teacher and courses in ZJU. 内网版浙大查老师（C
 
 ```cmd
     git clone https://github.com/zjufishboy/TalkTrue.git
-    cd ./Talktrue/front-end/
-    yarn
-    yarn start
+    cd ./Talktrue/
+    npm i
+    npm start
 ```
 
 ## 功能设计
@@ -48,7 +48,11 @@ A evaluation system for teacher and courses in ZJU. 内网版浙大查老师（C
 2020.7.12 搜索页面完成
 > webpack真是个煞笔玩意，按需加载死活学不会的我在考虑不在项目里使用开源icon了。我人傻了。
 
+2020.7.15 搜索内容条目，部分教师页面
+> 昨天手机进水了，哭哭，请了半天假去修手机，在手机店敲码233333
+
 ## 项目目前预览
 
 ![设计稿0.2.1](./src/image/sample.png)
 ![搜索页](./src/image/sample2.png)
+![教师页0.1.0](./src/image/sample3.png)

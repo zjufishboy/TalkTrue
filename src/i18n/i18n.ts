@@ -4,6 +4,9 @@ interface Ii18nSingle{
 interface Ii18n{
     [name:string]:Ii18nSingle;
 }
+interface paramsTable{
+    [key:string]:string;
+}
 class I18nManager{
     i18n:Ii18n={
         "PAGE_HOME":{
@@ -13,10 +16,10 @@ class I18nManager{
             "zh-cn":"搜索"
         },
         "PAGE_TEACHER":{
-            "zh-cn":"{name}"
+            "zh-cn":"教师{name}"
         },
         "PAGE_CLASS":{
-            "zh-cn":"{name}"
+            "zh-cn":"课程{name}"
         },
         "PAGE_INTRO":{
             "zh-cn":"介绍"
@@ -29,10 +32,26 @@ class I18nManager{
         },
         "clear":{
             "zh-cn":"清空"
+        },
+        "teacher":{
+            "zh-cn":"教师"
+        },
+        "class":{
+            "zh-cn":"课程"
         }
     }
     i18nSetting="zh-cn";
-    intl:(name:string)=>string=(name:string)=>this.i18n[name][this.i18nSetting];
+    intl:(name:string,...args:paramsTable[])=>string=(name:string,...args:paramsTable[])=>{
+        let result=this.i18n[name][this.i18nSetting];
+        if(args.length!==0){
+            for(const key in args[0]){
+                result=result.replace(`{${key}}`,args[0][key])
+            }
+        }
+        result=result.replace(/{.*}/g,"");
+        console.log(result)
+        return result;
+    }
 }
 
 export default new I18nManager(); 

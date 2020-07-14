@@ -9,7 +9,7 @@ module.exports = {
             __dirname,
             "../dist"
         ),
-        publicPath: "./",
+        publicPath: "/",
     },
     plugins: [
         new HtmlWebpackPlugin({

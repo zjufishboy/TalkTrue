@@ -39,7 +39,7 @@ interface IconProps{
 export const Icon:React.FC<IconProps>=({name,comment,site,handler}:IconProps)=>{
     return <span
         className={site==="bottom"?"iconBottom":"iconLeft"}
-        onClick={debounce(handler,1000)}
+        onClick={debounce(handler,100)}
     >
         {/* <TTIcon name={name}/> */}
         {comment}

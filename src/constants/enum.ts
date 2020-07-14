@@ -5,3 +5,8 @@ export enum PAGE{
     PAGE_CLASS="PAGE_CLASS",
     PAGE_INTRO="PAGE_INTRO"
 }
+export enum DATA_TYPE{
+    TEACHER="teacher",
+    CLASS="class",
+    OTHER="other"
+}
