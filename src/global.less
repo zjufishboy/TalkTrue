@@ -310,11 +310,19 @@
 	position: absolute;
 	bottom:0;
 }
+.cover-full-screen{
+	position: fixed;
+	top:0;
+	left:0;
+	width:100vw;
+	height:100vh;
+	z-index: 10;
+}
 .relative{
 	position: relative;
 }
 .CBGImage{
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -330,5 +338,9 @@
 @linkColor:#008cff;
 
 *{
-	font-family: "STKaiTi","KaiTi";
+	font-family:Helvetica,"PingFang SC","STKaiTi","KaiTi",sans-serif;
 }
+
+// *{
+// 	font-family:"STKaiTi","KaiTi",sans-serif;
+// }

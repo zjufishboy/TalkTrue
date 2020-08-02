@@ -7,7 +7,7 @@ class AppStore{
     @observable pageNow=PAGE.PAGE_HOME;// 当前的页面
     @observable history:string[]=[];//搜索历史
     @observable hotSearch:string[]=["游鱼星","fishstar"];//搜索历史
-    @observable searchResult:SearchResult[]=[mockSearchResult,mockSearchResultClass];//搜索信息；
+    @observable searchResult:SearchResult[]=[];//搜索信息；
     
     @action
     setPageNow(page:PAGE):void{

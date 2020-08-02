@@ -1,0 +1,23 @@
+@import '@/global.less';
+
+.model-outside{
+    .cover-full-screen();
+    .ccFlexColumn();
+    background-color: #00000057;
+    .model-content{
+        .ccFlexColumn();
+        transition: all 0.3s;
+        background-color: white;
+        border-radius: 4px;
+        
+        overflow: hidden;
+    }
+    .model-content-hide{
+        width:0px;
+        height: 0px;
+        padding:0px;
+    }
+    .model-content-show{
+        padding:4px;
+    }
+}

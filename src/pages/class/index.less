@@ -1,12 +1,10 @@
 @import '@/global.less';
 
-.ttTeacher{
-    .bcFlexColumn();
+.ttCourse{
     height:100%;
     box-sizing: border-box;
     padding:10px;
-    .ttTeacherInfoAndComment{
-        .scFlexColumn();
+    .courseInfoAndScore{
         width:100%;
         height:121px;
         box-sizing: border-box;
@@ -15,28 +13,28 @@
         border-radius: 10px;
         background-color: white;
         box-shadow: 0 0px 1px 0px #7a7a7a;
-        .teacherInfo{
+        .courseInfo{
             .bcFlexRow();
             width:100%;
             border-bottom: 1px solid #efefef;
-            .teacherInfoDetail{
-                .ccFlexColumn();
+            .courseInfoDetail{
                 flex:1;
+                .ccFlexColumn();
                 box-sizing: border-box;
                 height:60px;
                 
-                .teacherInfoName{
+                .courseInfoName{
                     font-size: 20px;
                     line-height: 30px;
                     font-weight: bold;
                 }
-                .teacherInfoCollage{
+                .courseInfoCollage{
                     font-size: 12px;
                     line-height: 18px;
                     font-weight: normal;
                 }
             }
-            .teacherScore{
+            .courseScore{
                 .ccFlexRow();
                 width:80px;
                 height: 60px;
@@ -46,7 +44,7 @@
                 border-radius: 0 10px 0 0;
             }
         }
-        .teacherOwnerComment{
+        .courseOwnerComment{
             height:40px;
             padding-top:5px;
             box-sizing: border-box;
@@ -57,7 +55,6 @@
                 height:30px;
                 border-left: 1px solid #efefef;
                 color:green;
-                cursor: pointer;
             }
             .ownerCommentDiv{
                 width:calc(100% - 40px);
@@ -72,7 +69,7 @@
             }
         }
     }
-    .ttTeacherComment{
+    .ttCourseComment{
         .scFlexColumn();
         box-sizing: border-box;
         width:100%;
@@ -81,27 +78,27 @@
         border-radius: 10px 10px 0 0;
         background-color: white;
         box-shadow: 0 0px 1px 0px #7a7a7a;
-        .ttTeacherCommentOrState{
+        .ttCourseCommentOrState{
             .bcFlexRow();
             box-sizing: border-box;
             width:100%;
             height:30px;
             margin-bottom: 10px;
-            .ttTeacherCommentOrStateItem{
+            .ttCourseCommentOrStateItem{
                 .ccFlexRow();
                 width:50%;
                 height:100%;
                 cursor: pointer;
             }
         }
-        .ttTeacherCommentOn{
+        .ttCourseCommentOn{
             color:#5bcce0;
             -webkit-tap-highlight-color: transparent;
         }
-        .ttTeacherCommentOff{
+        .ttCourseCommentOff{
             color:#222222;
         }
-        .ttTeacherList{
+        .ttCourseList{
             flex:1;
             overflow-y: auto;
             &::-webkit-scrollbar{

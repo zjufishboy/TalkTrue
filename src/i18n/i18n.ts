@@ -49,7 +49,6 @@ class I18nManager{
             }
         }
         result=result.replace(/{.*}/g,"");
-        console.log(result)
         return result;
     }
 }

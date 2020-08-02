@@ -14,6 +14,7 @@ import RootStore,{Provider}  from '@/store/rootStore'
 import i18n from "./i18n/i18n";
 import { observer } from "mobx-react";
 import Teacher from "./pages/teacher";
+import Course from "./pages/class";
 
 const App:React.FC=()=>{
     useEffect(()=>{
@@ -38,6 +39,9 @@ const App:React.FC=()=>{
                         </Route>
                         <Route path="/teacher/:teacherID" exact>
                             <Teacher/>
+                        </Route>
+                        <Route path="/course/:courseID" exact>
+                            <Course/>
                         </Route>
                     </Switch>
                 </Router>

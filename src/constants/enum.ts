@@ -10,3 +10,7 @@ export enum DATA_TYPE{
     CLASS="class",
     OTHER="other"
 }
+export enum STATE_CLASS{
+    UNTAKED=0,
+    TAKED=1
+}

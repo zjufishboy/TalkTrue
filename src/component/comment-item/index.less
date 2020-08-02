@@ -1,0 +1,44 @@
+@import '@/global.less';
+.comment{
+    .scFlexColumn();
+    padding:5px 0px;
+    border-bottom: 1px solid #efefef;
+    .userBaseInfo{
+        .scFlexRow();
+        height:40px;
+        .userBaseInfoState{
+            .scFlexColumn();
+            flex: 1;
+            margin-left:10px;
+            .userBaseInfoName{
+                flex:1;
+                .scFlexRow();
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 1000;
+            }
+            .userBaseInfoRank{
+                flex:1;
+                .scFlexRow();
+                font-size: 10px;
+                line-height: 16px;
+            }
+        }
+        margin-bottom: 10px;
+    }
+    .commentContent{
+        font-size: 12px;
+        line-height: 18px;
+        color:#3f3f3f;
+    }
+    .commentTrust{
+        .ecFlexRow();
+        height: 16px;
+        span{
+            margin:0 10px;
+            font-size: 10px;
+            line-height: 16px;
+        }
+        margin-top:5px;
+    }
+}
