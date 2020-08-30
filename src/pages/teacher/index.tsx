@@ -12,110 +12,93 @@ import { CommentItem } from '@/component/comment-item';
 import edit from '@/image/icons/edit.svg';
 import { Logo } from '@/component/logo';
 import { Model } from '@/component/model';
+import { TTRank } from '@/biz-component/tt-rank';
+import { ModelForTeacher } from '@/biz-component/tt-model';
 
 
-const classInfo:ClassInfo[]=[
+const classInfo: ClassInfo[] = [
     {
-        name:"言果课程教程",
-        score:4.9,
-        classId:0
+        name: "言果课程教程",
+        score: 4.9,
+        classId: 0
     },
     {
-        name:"言果课程教程",
-        score:5.0,
-        classId:2
+        name: "言果课程教程",
+        score: 5.0,
+        classId: 2
     },
     {
-        name:"言果课程教程",
-        score:5.0,
-        classId:4
+        name: "言果课程教程",
+        score: 5.0,
+        classId: 4
     }
 ]
 
-const commets:CommentsInfo[]=[
+const commets: CommentsInfo[] = [
     {
-        user:{
-            avater:avatar,
-            userName:"匿名"
+        user: {
+            avater: avatar,
+            userName: "匿名"
         },
-        state:STATE_CLASS.UNTAKED,
-        trust:10,
-        comment:"这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
-        rank:5
+        state: STATE_CLASS.UNTAKED,
+        trust: 10,
+        comment: "这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
+        rank: 5
     },
     {
-        user:{
-            avater:avatar,
-            userName:"匿名"
+        user: {
+            avater: avatar,
+            userName: "匿名"
         },
-        state:STATE_CLASS.TAKED,
-        trust:25,
-        comment:"这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
-        rank:2.8
+        state: STATE_CLASS.TAKED,
+        trust: 25,
+        comment: "这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
+        rank: 2.8
     },
     {
-        user:{
-            avater:avatar,
-            userName:"匿名"
+        user: {
+            avater: avatar,
+            userName: "匿名"
         },
-        state:STATE_CLASS.TAKED,
-        trust:25,
-        comment:"这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
-        rank:2.8
+        state: STATE_CLASS.TAKED,
+        trust: 25,
+        comment: "这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
+        rank: 2.8
     },
     {
-        user:{
-            avater:avatar,
-            userName:"匿名"
+        user: {
+            avater: avatar,
+            userName: "匿名"
         },
-        state:STATE_CLASS.TAKED,
-        trust:25,
-        comment:"这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
-        rank:2.8
+        state: STATE_CLASS.TAKED,
+        trust: 25,
+        comment: "这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错这课不错",
+        rank: 2.8
     }
 ]
-const mockComment="这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好"
+const mockComment = "这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好这个老师人很好"
 
-const Teacher:React.FC=()=>{
-    const rootStore=useStore();
-    React.useEffect(()=>{
+const Teacher: React.FC = () => {
+    const rootStore = useStore();
+    React.useEffect(() => {
         rootStore.appStore.setPageNow(PAGE.PAGE_TEACHER);
-        document.title=i18n.intl(rootStore.appStore.pageNow,{name:"游鱼星"})
+        document.title = i18n.intl(rootStore.appStore.pageNow, { name: "游鱼星" })
     })
-    const {teacherID}=useParams();
-    const teacherInfo={name:"游鱼星",college:"计算机学院"}
-    const [isClass,setIsClass]=useState(true);
-    const [visable,setVisble]=React.useState(true);
+    // const { teacherID } = useParams();
+    const teacherInfo = { name: "游鱼星", college: "计算机学院" }
+    const [isClass, setIsClass] = useState(true);
+    const [visable, setVisble] = React.useState(false);
+    const handleCancel = () => { setVisble(false) }
+    const handleOk = () => { setVisble(true) }
+
     return (
         <>
-            <Model
-                width={308}
-                height={408}
+            <ModelForTeacher
+                name={teacherInfo.name}
                 visable={visable}
-                onCancel={()=>{setVisble(false)}}
-                onOK={()=>{setVisble(false)}}
-            >
-                <div className="ttCommentContent">
-                    <div className="ttcc-tittle">
-                        为<span>{teacherInfo.name}</span>打分
-                    </div>
-                    <div className="ttcc-suggestion">
-                        <textarea className="ttcc-text" placeholder="建议/吐槽"/>
-                    </div>
-                    <div>
-                        人品
-                    </div>
-                    <div>
-                        课程
-                    </div>
-                    <div>
-                        给分
-                    </div>
-                    <div>
-                        发送
-                    </div>
-                </div>
-            </Model>
+                onCancel={handleCancel}
+                onOk={handleOk}
+            />
             <div className="ttTeacher">
                 <div className="ttTeacherInfoAndComment">
                     <div className="teacherInfo">
@@ -131,22 +114,22 @@ const Teacher:React.FC=()=>{
                         <div className="ownerCommentDiv">
                             {mockComment}
                         </div>
-                        <div className="ownerComment" onClick={()=>{setVisble(true)}}>
-                            <Logo src={edit} color="#707070" height={20} width={20} isSVG/>
+                        <div className="ownerComment" onClick={() => { setVisble(true) }}>
+                            <Logo src={edit} color="#707070" height={20} width={20} isSVG />
                         </div>
                     </div>
                 </div>
                 <div className="ttTeacherComment">
                     <div className="ttTeacherCommentOrState">
-                        <div className={`ttTeacherCommentOrStateItem ttTeacherComment${ isClass?"On":"Off"}`} onClick={()=>{setIsClass(true)}}>课程</div>
-                        <div className={`ttTeacherCommentOrStateItem ttTeacherComment${!isClass?"On":"Off"}`} onClick={()=>{setIsClass(false)}}>评价</div>
+                        <div className={`ttTeacherCommentOrStateItem ttTeacherComment${isClass ? "On" : "Off"}`} onClick={() => { setIsClass(true) }}>课程</div>
+                        <div className={`ttTeacherCommentOrStateItem ttTeacherComment${!isClass ? "On" : "Off"}`} onClick={() => { setIsClass(false) }}>评价</div>
                     </div>
                     <div className="ttTeacherList">
                         {
-                        isClass ? 
-                            classInfo.map((cls:ClassInfo,index:number)=><ClassItem classInfo={cls} key={index}/>)
-                            :
-                            commets.map((comment:CommentsInfo,index:number)=><CommentItem comment={comment} key={index}/>)
+                            isClass ?
+                                classInfo.map((cls: ClassInfo, index: number) => <ClassItem classInfo={cls} key={index} />)
+                                :
+                                commets.map((comment: CommentsInfo, index: number) => <CommentItem comment={comment} key={index} />)
                         }
                     </div>
                 </div>
