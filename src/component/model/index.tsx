@@ -17,12 +17,7 @@ interface ModelProps{
 }
 
 export const Model:React.FC<ModelProps>=({children,width="75%",height="75%",visable,onCancel}:ModelProps)=>{
-    // const [display,setDisplay]=React.useState(false);
-    const [loading,setLoading]=React.useState(false);
     const modelContentStyle={width,height}
-    React.useEffect(()=>{
-        // setDisplay(true);
-    })
     const getContentClassName=()=>{
         const cls=["model-content"];
         cls.push(visable?"model-content-show":"model-content-hide");
@@ -30,12 +25,9 @@ export const Model:React.FC<ModelProps>=({children,width="75%",height="75%",visa
     }
     const handleCoverClick=()=>{
         onCancel();
-        setTimeout(()=>{
-            setLoading(!loading);
-        },200);
     }
     const handleContentClick=(e:React.MouseEvent<HTMLDivElement>)=>{
-        e.preventDefault();
+        e.stopPropagation();
     }
     const renderModel=()=>(
         <div 
@@ -48,7 +40,7 @@ export const Model:React.FC<ModelProps>=({children,width="75%",height="75%",visa
                 style={visable?modelContentStyle:{}}
                 onClick={handleContentClick}
             >
-                {visable && loading && children}
+                {visable && children}
             </div>
         </div>
     )

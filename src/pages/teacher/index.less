@@ -110,3 +110,40 @@
         }
     }
 }
+
+// 评论内容
+.ttCommentContent{
+    width:100%;
+    height:100%;
+    .ttcc-tittle{
+        width:100%;
+        height:20px;
+        color:black;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: normal;
+        span{
+            font-weight: bold;
+            margin:0 5px;
+        }
+    }
+    .ttcc-suggestion{
+        .ttcc-text{
+            width:calc(100% - 8px);
+            outline:none;
+            height:60px;
+            margin:10px 0px;
+            border-radius: 4px;
+            color:black;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: normal;
+            resize:none;
+            border:1px solid gray;
+            &:focus{
+                border:1px solid #33B8EB;
+            }
+        }
+
+    }
+}

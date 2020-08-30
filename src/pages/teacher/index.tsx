@@ -85,15 +85,36 @@ const Teacher:React.FC=()=>{
     const {teacherID}=useParams();
     const teacherInfo={name:"游鱼星",college:"计算机学院"}
     const [isClass,setIsClass]=useState(true);
-    const [visable,setVisble]=React.useState(false);
+    const [visable,setVisble]=React.useState(true);
     return (
         <>
             <Model
+                width={308}
+                height={408}
                 visable={visable}
                 onCancel={()=>{setVisble(false)}}
                 onOK={()=>{setVisble(false)}}
             >
-                这是一个model
+                <div className="ttCommentContent">
+                    <div className="ttcc-tittle">
+                        为<span>{teacherInfo.name}</span>打分
+                    </div>
+                    <div className="ttcc-suggestion">
+                        <textarea className="ttcc-text" placeholder="建议/吐槽"/>
+                    </div>
+                    <div>
+                        人品
+                    </div>
+                    <div>
+                        课程
+                    </div>
+                    <div>
+                        给分
+                    </div>
+                    <div>
+                        发送
+                    </div>
+                </div>
             </Model>
             <div className="ttTeacher">
                 <div className="ttTeacherInfoAndComment">

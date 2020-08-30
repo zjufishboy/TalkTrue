@@ -15,8 +15,22 @@ import i18n from "./i18n/i18n";
 import { observer } from "mobx-react";
 import Teacher from "./pages/teacher";
 import Course from "./pages/class";
+import { DashBoard } from "./pages/components";
 
-const App:React.FC=()=>{
+const PathCollections={
+    Moblie:[
+        "/",
+        "/search",
+        "/teacher/:teacherID",
+        "/course/:courseID",
+    ],
+    PC:[
+        "/component/:ComponentName",
+        "/component"
+    ]
+}
+
+const AppMoblie:React.FC=()=>{
     useEffect(()=>{
         RootStore.appStore.fetchHistory();
     })
@@ -54,5 +68,21 @@ const App:React.FC=()=>{
     )
 }
 
-export default observer(App);
+const AppM=observer(AppMoblie);
+
+const AppPC:React.FC=()=>{
+    return (
+        <Router>
+            <Switch>
+                <Route path={PathCollections.Moblie} exact>
+                    <AppM/>
+                </Route>
+                <Route path={PathCollections.PC} exact render={()=><DashBoard/>}>
+                </Route>
+            </Switch>
+        </Router>
+    );
+}
+
+export default observer(AppPC);
 //这个文件是管理应用路径用的
