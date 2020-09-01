@@ -21,7 +21,9 @@ const Home: React.FC = () => {
             <div
                 className="ttHomeBody"
             >
+                <div className="icon-container">
                 <Logo width={200} height={200}/>
+                </div>
             </div>
         </div>
     )

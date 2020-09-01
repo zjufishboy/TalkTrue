@@ -18,9 +18,6 @@ export const ClassItem:React.FC<ClassItemProps>=({classInfo}:ClassItemProps)=>{
             className="classItemInfo"
             onClick={handleClick}
         >
-            <div className="classColorIcon">
-                <Logo height={16.5} width={16.5} isCircle randomColor/>
-            </div>
             <div
                 className="classItemName"
             >

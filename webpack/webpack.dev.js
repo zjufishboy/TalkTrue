@@ -10,6 +10,7 @@ module.exports = webpackMerge(common, {
     contentBase: '../dist',
     publicPath: '/',
     compress: true,
+    host:'0.0.0.0',
     port: 9876,
     historyApiFallback: {
       index:"/"

@@ -9,8 +9,8 @@ interface MobileProps{
     /**
      * 宽高
      */
-    height:number;
-    width:number;
+    height:number|string;
+    width:number|string;
 }
 /**
  * 手机尺寸组件

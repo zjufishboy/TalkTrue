@@ -21,8 +21,8 @@ class I18nManager{
         "PAGE_CLASS":{
             "zh-cn":"课程{name}"
         },
-        "PAGE_INTRO":{
-            "zh-cn":"介绍"
+        "PAGE_ABOUT":{
+            "zh-cn":"关于"
         },
         "hotSearch":{
             "zh-cn":"热门搜索"
