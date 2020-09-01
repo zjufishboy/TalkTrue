@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './index.less'
-import {SearchBar} from '@/component/search';
+import { SearchBar } from '@/component/search';
 import { useStore } from '@/utils/other';
 import { PAGE } from '@/constants/enum';
 import i18n from '@/i18n/i18n';
@@ -10,32 +10,33 @@ import { Card } from '@/component/card';
 import { SearchResult } from '@/constants/types';
 
 const Search: React.FC = () => {
-    const rootStore=useStore();
+    const rootStore = useStore();
     const history = useHistory();
-    useEffect(()=>{
+    useEffect(() => {
         rootStore.appStore.setPageNow(PAGE.PAGE_SEARCH);
-        document.title=i18n.intl(rootStore.appStore.pageNow)
+        document.title = i18n.intl(rootStore.appStore.pageNow)
     })
-    const handleCancel=()=>{
+    const handleCancel = () => {
         history.replace('/');
     }
-    const handleSearch=(content:string)=>{
+    const handleSearch = (content: string) => {
         rootStore.appStore.addHistory(content);
         rootStore.appStore.fetchSearchResult("游鱼星");
     }
-    const handleClear=()=>{
+    const handleClear = () => {
         rootStore.appStore.clearHistory();
     }
-    const handleReset=()=>{
+    const handleReset = () => {
         rootStore.appStore.clearSearchResult();
     }
-    const handleClick=(c:string,iscover=true)=>{
-        if(iscover)
+    const handleClick = (c: string, iscover = true) => {
+        if (iscover)
             rootStore.appStore.addHistory(c);
         rootStore.appStore.fetchSearchResult(c);
     }
-    const mapSearchItem=(result:SearchResult,index:number)=>{
-        const handleClick=()=>{
+    const mapSearchItem = (result: SearchResult, index: number) => {
+        const handleClick = () => {
+            rootStore.appStore.clearSearchResult();
             history.push(`/${result.type}/${result.info}`)
         }
         return (
@@ -52,19 +53,26 @@ const Search: React.FC = () => {
         <div
             className="ttSearch"
         >
-            <SearchBar cancel={handleCancel} handler={handleSearch} reset={handleReset}/>
+            <SearchBar cancel={handleCancel} handler={handleSearch} reset={handleReset} />
             {
-                rootStore.appStore.searchResult.length===0?
+                rootStore.appStore.searchResult.length === 0 ?
                     <>
-                        <Card title={i18n.intl("hotSearch")} keywords={rootStore.appStore.hotSearch} clickHandler={handleClick}/>
-                        <Card title={i18n.intl("history")} keywords={rootStore.appStore.history} clearHandler={handleClear} clickHandler={handleClick}/>
+                        <Card 
+                            title={i18n.intl("hotSearch")} 
+                            keywords={rootStore.appStore.hotSearch}
+                            clickHandler={handleClick} />
+                        <Card 
+                            title={i18n.intl("history")} 
+                            keywords={rootStore.appStore.history} 
+                            clearHandler={handleClear} 
+                            clickHandler={handleClick} />
                     </>
-                :
+                    :
                     <>
                         {rootStore.appStore.searchResult.map(mapSearchItem)}
                     </>
             }
-            
+
         </div>
     )
 }

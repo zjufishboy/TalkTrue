@@ -39,7 +39,7 @@ export const ModelForClass: React.FC<ModelForClassProps> = (props) => {
                 <TTRank label="给分" value={value[2]} onChange={setValueNo(2)} />
                 <button className="ttcc-send">
                     发送
-                    </button>
+                </button>
             </div>
         </Model>
     );
