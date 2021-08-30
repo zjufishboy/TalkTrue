@@ -1,0 +1,45 @@
+// flex布局
+.flex(@direction:row,@main:center,@second:center) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @main;
+  align-items: @second;
+}
+
+// 全屏（盖住）
+.cover-full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+// 全屏
+.fullScreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+// 背景图片居中
+.CBGImage(@size:contain) {
+  background-size: @size;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+// 边缘圆角
+.circle {
+  border-radius: 50%;
+}
+
+//绝对定位
+.absTop {
+  position: absolute;
+  top: 0;
+}
+.absBottom {
+  position: absolute;
+  bottom: 0;
+}

@@ -1,109 +1,109 @@
-@import '@/global.less';
+@import "../../style/index.less";
 
-.ttCourse{
-    height:100%;
+.ttCourse {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  .courseInfoAndScore {
+    width: 100%;
+    height: 121px;
     box-sizing: border-box;
-    padding:10px;
-    .courseInfoAndScore{
-        width:100%;
-        height:121px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0px 1px 0px #7a7a7a;
+    .courseInfo {
+      .flex(row,space-between);
+      width: 100%;
+      border-bottom: 1px solid #efefef;
+      .courseInfoDetail {
+        flex: 1;
+        .flex(column);
         box-sizing: border-box;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        background-color: white;
-        box-shadow: 0 0px 1px 0px #7a7a7a;
-        .courseInfo{
-            .bcFlexRow();
-            width:100%;
-            border-bottom: 1px solid #efefef;
-            .courseInfoDetail{
-                flex:1;
-                .ccFlexColumn();
-                box-sizing: border-box;
-                height:60px;
-                
-                .courseInfoName{
-                    font-size: 20px;
-                    line-height: 30px;
-                    font-weight: bold;
-                }
-                .courseInfoCollage{
-                    font-size: 12px;
-                    line-height: 18px;
-                    font-weight: normal;
-                }
-            }
-            .courseScore{
-                .ccFlexRow();
-                width:80px;
-                height: 60px;
-                font-size: 50px;
-                font-weight: bold;
-                color:rgb(65, 128, 221);
-                border-radius: 0 10px 0 0;
-            }
+        height: 60px;
+
+        .courseInfoName {
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: bold;
         }
-        .courseOwnerComment{
-            height:40px;
-            padding-top:5px;
-            box-sizing: border-box;
-            .scFlexRow();
-            .ownerComment{
-                .ccFlexRow();
-                width:40px;
-                height:30px;
-                border-left: 1px solid #efefef;
-                color:green;
-            }
-            .ownerCommentDiv{
-                width:calc(100% - 40px);
-                height:32px;
-                font-size: 12px;
-                line-height: 16px;
-                color:#3f3f3f;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow: hidden;
-            }
+        .courseInfoCollage {
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: normal;
         }
+      }
+      .courseScore {
+        .flex();
+        width: 80px;
+        height: 60px;
+        font-size: 50px;
+        font-weight: bold;
+        color: rgb(65, 128, 221);
+        border-radius: 0 10px 0 0;
+      }
     }
-    .ttCourseComment{
-        .scFlexColumn();
-        box-sizing: border-box;
-        width:100%;
-        height:425px;
-        padding:10px 10px 0px 10px;
-        border-radius: 10px 10px 0 0;
-        background-color: white;
-        box-shadow: 0 0px 1px 0px #7a7a7a;
-        .ttCourseCommentOrState{
-            .bcFlexRow();
-            box-sizing: border-box;
-            width:100%;
-            height:30px;
-            margin-bottom: 10px;
-            .ttCourseCommentOrStateItem{
-                .ccFlexRow();
-                width:50%;
-                height:100%;
-                cursor: pointer;
-            }
-        }
-        .ttCourseCommentOn{
-            color:#5bcce0;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .ttCourseCommentOff{
-            color:#222222;
-        }
-        .ttCourseList{
-            flex:1;
-            overflow-y: auto;
-            &::-webkit-scrollbar{
-                display: none;
-            }
-        }
+    .courseOwnerComment {
+      height: 40px;
+      padding-top: 5px;
+      box-sizing: border-box;
+      .flex(row,flex-start);
+      .ownerComment {
+        .flex();
+        width: 40px;
+        height: 30px;
+        border-left: 1px solid #efefef;
+        color: green;
+      }
+      .ownerCommentDiv {
+        width: calc(100% - 40px);
+        height: 32px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #3f3f3f;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
     }
+  }
+  .ttCourseComment {
+    .flex(column,flex-start);
+    box-sizing: border-box;
+    width: 100%;
+    height: 425px;
+    padding: 10px 10px 0px 10px;
+    border-radius: 10px 10px 0 0;
+    background-color: white;
+    box-shadow: 0 0px 1px 0px #7a7a7a;
+    .ttCourseCommentOrState {
+      .flex(row,space-between);
+      box-sizing: border-box;
+      width: 100%;
+      height: 30px;
+      margin-bottom: 10px;
+      .ttCourseCommentOrStateItem {
+        .flex();
+        width: 50%;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+    .ttCourseCommentOn {
+      color: #5bcce0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ttCourseCommentOff {
+      color: #222222;
+    }
+    .ttCourseList {
+      flex: 1;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 }

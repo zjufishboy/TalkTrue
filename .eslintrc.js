@@ -1,4 +1,4 @@
-module.exports={
+module.exports = {
   env: {
     browser: true,
     es2020: true,
@@ -16,12 +16,10 @@ module.exports={
     ecmaVersion: 11,
     sourceType: "module",
   },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-  ],
+  plugins: ["react", "@typescript-eslint"],
   rules: {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
   },
   settings: {
     react: {

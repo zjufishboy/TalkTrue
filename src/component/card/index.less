@@ -1,38 +1,40 @@
-@import '@/global.less';
+@import "../../style/index.less";
 
-.card{
-    margin:8px 10px;
-    width:calc(100% - 20px);
-    background-color: white;
-    border-radius: 10px;
-    padding:0 4px;
+.card {
+  margin: 8px 10px;
+  width: calc(100% - 20px);
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  color: @n02;
+  .cardTitle {
     box-sizing: border-box;
-    color:@B;
-    .cardTitle{
-        box-sizing: border-box;
-        padding:0px 10px;
-        height: 18px;
-        margin:10px 0;
-        width:100%;
-        .bcFlexRow();
+    height: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+    .flex(row,space-between);
+  }
+  .card-empty {
+    .flex();
+  }
+  .keywordBar {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    .keyword {
+      .flex();
+      cursor: pointer;
+      color: gray;
+      box-sizing: border-box;
+      width: auto;
+      height: 28px;
+      line-height: 20px;
+      border-radius: 14px;
+      background-color: #efefef;
+      padding: 2px 14px;
+      margin: 2px 4px;
     }
-    .keywordBar{
-        width:100%;
-        margin:10px 0;
-        display: flex;
-        flex-wrap: wrap;
-        .keyword{
-            .ccFlexRow();
-            cursor: pointer;
-            color:@G;
-            box-sizing: border-box;
-            width:auto;
-            height:28px;
-            line-height: 20px;
-            border-radius: 14px;
-            background-color: #efefef;
-            padding:2px 14px;
-            margin:2px 4px;
-        }
-    }
+  }
 }
