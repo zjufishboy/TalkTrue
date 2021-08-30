@@ -1,18 +1,24 @@
-@import '@/global.less';
-@keyframes showup{
-    from {opacity: 0; margin-top:100px;}
-    to   {opacity: 1; margin-top: 0px}
+@import "../../style/index.less";
+@keyframes showup {
+  from {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0px;
+  }
 }
-.ttHome{
-    .scFlexColumn();
-    height:100%;
-    color: red;
-    .ttHomeBody{
-        flex:1;
-        .ccFlexColumn();
-        .icon-container{
-            width:200px;
-            animation: showup 2s ease;
-        }
+.ttHome {
+  .flex(column,flex-start);
+  height: 100%;
+  color: red;
+  .ttHomeBody {
+    flex: 1;
+    .flex(column);
+    .icon-container {
+      width: 200px;
+      animation: showup 2s ease;
     }
+  }
 }

@@ -1,55 +1,55 @@
-@import '@/global.less';
+@import "../../style/index.less";
 
-.search{
-    width:100%;
-    min-height: 60px;
-    padding:0 10px;
-    box-sizing: border-box;
+.search {
+  width: 100%;
+  min-height: 60px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
-.searchHead{
-    .ccFlexColumn();
-    .search();
-    background-color: #efefef;
-    .searchHeadContent{
-        cursor: pointer;
-        .ccFlexColumn();
-        box-shadow: 0px 0px 1px #cfcfcf;
-        width:96%;
-        height:90%;
-        max-height: 36px;
-        border-radius: 20px;
-        background-color: white;
-        color:black;
-    }
-}
-.searchBar{
-    .ccFlexRow();
-    .search();
+.searchHead {
+  .flex(column);
+  .search();
+  background-color: #efefef;
+  .searchHeadContent {
+    cursor: pointer;
+    .flex(column);
+    box-shadow: 0px 0px 1px #cfcfcf;
+    width: 96%;
+    height: 90%;
+    max-height: 36px;
+    border-radius: 20px;
     background-color: white;
-    .cancel{
-        .ccFlexColumn();
-        cursor: pointer;
-        width:60px;
-        height:40px;
-        color:@linkColor;
-        background: transparent;
-    }
-    .cancel:active{
-        background: transparent;
-    }
-    .searchContent{
-        cursor: pointer;
-        text-align: center;
-        line-height: 36px;
-        font-size: 16px;
-        flex:1;
-        width:96%;
-        height:90%;
-        max-height: 36px;
-        border-radius: 20px;
-        border:none;
-        outline: none;
-        background-color: #efefef;
-    }
+    color: black;
+  }
+}
+.searchBar {
+  .flex();
+  .search();
+  background-color: white;
+  .cancel {
+    .flex(column);
+    cursor: pointer;
+    width: 60px;
+    height: 40px;
+    color: @b01;
+    background: transparent;
+  }
+  .cancel:active {
+    background: transparent;
+  }
+  .searchContent {
+    cursor: pointer;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    flex: 1;
+    width: 96%;
+    height: 90%;
+    max-height: 36px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #efefef;
+  }
 }

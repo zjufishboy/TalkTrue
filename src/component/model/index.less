@@ -1,22 +1,22 @@
-@import '@/global.less';
+@import "../../style/index.less";
 
-.model-outside{
-    .cover-full-screen();
-    .ccFlexColumn();
-    background-color: #00000057;
-    .model-content{
-        .ccFlexColumn();
-        background-color: white;
-        border-radius: 4px;
-        
-        overflow: hidden;
-    }
-    .model-content-hide{
-        width:0px;
-        height: 0px;
-        padding:0px;
-    }
-    .model-content-show{
-        padding:12px;
-    }
+.model-outside {
+  .cover-full-screen();
+  .flex(column);
+  background-color: #00000057;
+  .model-content {
+    .flex(column);
+    background-color: white;
+    border-radius: 4px;
+
+    overflow: hidden;
+  }
+  .model-content-hide {
+    width: 0px;
+    height: 0px;
+    padding: 0px;
+  }
+  .model-content-show {
+    padding: 12px;
+  }
 }

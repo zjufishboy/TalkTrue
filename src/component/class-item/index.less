@@ -1,21 +1,21 @@
-@import '@/global.less';
+@import "../../style/index.less";
 
-.classItemInfo{
-    .bcFlexRow();
-    width:100%;
-    height:30px;
-    margin:5px 0px;
-    cursor: pointer;
-    .classColorIcon{
-        .ccFlexRow();
-        width:30px;
-        height:30px;
-    }
-    .classItemName{
-        flex:1;
-    }
-    .classItemScore{
-        .ccFlexRow();
-        width:80px;
-    }
+.classItemInfo {
+  .flex(row,space-between);
+  width: 100%;
+  height: 30px;
+  margin: 5px 0px;
+  cursor: pointer;
+  .classColorIcon {
+    .flex();
+    width: 30px;
+    height: 30px;
+  }
+  .classItemName {
+    flex: 1;
+  }
+  .classItemScore {
+    .flex();
+    width: 80px;
+  }
 }
