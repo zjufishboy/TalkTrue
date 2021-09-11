@@ -11,9 +11,9 @@ export interface ClassItemProps{
 export const ClassItem:React.FC<ClassItemProps>=({classInfo}:ClassItemProps)=>{
     const history=useHistory();
     const handleClick=()=>{
-        history.push(`/course/${classInfo.classId}`);
+        history.push(`/course/${classInfo.id}`);
     }
-    console.log(classInfo)
+  //  console.log(classInfo)
     return (
         <div
             className="classItemInfo"

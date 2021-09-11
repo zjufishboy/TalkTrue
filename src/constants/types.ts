@@ -32,7 +32,7 @@ export interface ClassInfo{
     /**
      * 课程ID
      */
-    classId:number;
+    id:number;
 }
 
 export interface UserInfo{
@@ -51,7 +51,8 @@ export interface CommentsInfo{
 export interface TeacherInfo{
     name:string;
     id:number;
-    score:number;
+    avg_score:number;
+    teacher_name:string;
 }
 
 //该接口对应后端返回的teachers对象

@@ -24,12 +24,13 @@ export const TeacherItem:React.FC<TeacherItemProps>=({teacherInfo}:TeacherItemPr
             <div
                 className="TeacherItemName"
             >
-                {teacherInfo.name}
+                {teacherInfo.teacher_name}
             </div>
             <div
                 className="TeacherItemScore"
-            >
-                {`${teacherInfo.score.toFixed(1)}`}
+            >   
+                {teacherInfo.avg_score}
+                {/* {`${teacherInfo.score.toFixed(1)}`} */}
             </div>
             <div className="teacherColorIcon">
                 <Logo height={16.5} width={16.5} src={right} isSVG color="#cdcdcd"/>

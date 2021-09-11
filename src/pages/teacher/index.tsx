@@ -99,9 +99,6 @@ const Teacher: React.FC = () => {
   React.useEffect(()=>{
     const getTeacher = async () => {
       const result = await reqTeacherById(teacherID);
-    //  console.log(result)
-     // console.log(typeof result.courses[0].avg_score)
-    //  console.log(typeof result.courses[0].id)
       setteacherInfo(result)
     }
     getTeacher()
@@ -119,7 +116,7 @@ const Teacher: React.FC = () => {
       {
         name: "",
         avg_score:4.9,
-        classId: 0,
+        id: 0,
       },
     ]
   })
