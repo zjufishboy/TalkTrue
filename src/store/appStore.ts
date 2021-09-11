@@ -1,7 +1,7 @@
 import { observable, action, flow } from "mobx";
 import "mobx-react-lite/batchingForReactDom";
-import { PAGE } from "@/constants/enum";
-import { SearchResult } from "@/constants/types";
+import { PAGE, DATA_TYPE} from "@/constants/enum";
+import { SearchResult,Teacher } from "@/constants/types";
 import { searchTeacherInfo } from "@/api";
 class AppStore {
   @observable pageNow = PAGE.PAGE_HOME; // 当前的页面
@@ -33,8 +33,17 @@ class AppStore {
   }
 
   fetchSearchResult = flow(function* (this: AppStore, key: string) {
-    yield searchTeacherInfo(key);
-    return;
+    const result = yield searchTeacherInfo(key);
+    const teachers = result.results;
+    //console.log(teachers)
+    this.searchResult = teachers.map((teacher:Teacher) => {
+      return {
+        type:DATA_TYPE.TEACHER,
+        info:teacher.id,
+        name:teacher.name,
+        college:teacher.college
+      }
+    })
   });
 
   @action

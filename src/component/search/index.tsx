@@ -46,9 +46,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     }
   };
   const handleEnter = (e: KeyboardEvent<HTMLDivElement>) => {
+    //console.log(e.which)
     if (e.which == 32 || e.which == 13) {
       let str = refInput.current.value;
+       //匹配换行符和回车符
       str = str.replace(/[\r\n]/g, "");
+        //匹配空格
       str = str.replace(/\s+/g, "");
       refInput.current.value = str;
     }
@@ -71,6 +74,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         style={{ color: isNothing ? "#a6a6a6" : "#222222" }}
       />
       <div className="cancel" onClick={isNothing ? Cancel : handleSearch}>
+        {/* 点击空白处后,如果输入框内没有内容,则【搜索】变为【取消】 */}
         {isNothing ? "取消" : "搜索"}
       </div>
     </div>

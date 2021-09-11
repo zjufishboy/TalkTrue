@@ -16,6 +16,8 @@ export interface SearchResult{
      * 显示名称：显示出来的数据名称
      */
     name:string;
+
+    college?:string
 }
 export interface ClassInfo{
     /**
@@ -25,7 +27,8 @@ export interface ClassInfo{
     /**
      * 课程均分
      */
-    score:number;
+ //   score:number;
+    avg_score:number;
     /**
      * 课程ID
      */
@@ -49,4 +52,11 @@ export interface TeacherInfo{
     name:string;
     id:number;
     score:number;
+}
+
+//该接口对应后端返回的teachers对象
+export interface Teacher{
+    id:number,
+    name:string,
+    college:string
 }

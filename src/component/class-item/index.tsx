@@ -13,6 +13,7 @@ export const ClassItem:React.FC<ClassItemProps>=({classInfo}:ClassItemProps)=>{
     const handleClick=()=>{
         history.push(`/course/${classInfo.classId}`);
     }
+    console.log(classInfo)
     return (
         <div
             className="classItemInfo"
@@ -26,7 +27,8 @@ export const ClassItem:React.FC<ClassItemProps>=({classInfo}:ClassItemProps)=>{
             <div
                 className="classItemScore"
             >
-                {`${classInfo.score.toFixed(1)}`}
+               {classInfo.avg_score}
+               {/*  {`${classInfo.avg_score.toFixed(1)}`} */}
             </div>
             <div className="classColorIcon">
                 <Logo height={16.5} width={16.5} src={right} isSVG color="#cdcdcd"/>

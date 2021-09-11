@@ -30,7 +30,7 @@ export const ModelForTeacher: React.FC<ModelForTeacherProps> = (props) => {
             <div className="ttCommentContent">
                 <div className="ttcc-tittle">
                     为<span>{name}</span>打分
-                    </div>
+                </div>
                 <div className="ttcc-suggestion">
                     <textarea className="ttcc-text" placeholder="建议/吐槽" />
                 </div>
@@ -39,7 +39,7 @@ export const ModelForTeacher: React.FC<ModelForTeacherProps> = (props) => {
                 <TTRank label="给分" value={value[2]} onChange={setValueNo(2)} />
                 <button className="ttcc-send">
                     发送
-                    </button>
+                </button>
             </div>
         </Model>
     );

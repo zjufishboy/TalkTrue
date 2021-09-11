@@ -10,3 +10,4 @@ const rootStore = new RootStore();
 
 export const storeContext = React.createContext<RootStore>(rootStore);
 export const useStore = () => React.useContext<RootStore>(storeContext);
+

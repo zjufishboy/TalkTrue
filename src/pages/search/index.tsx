@@ -21,7 +21,7 @@ const Search: React.FC = () => {
   };
   const handleSearch = (content: string) => {
     appStore.addHistory(content);
-    appStore.fetchSearchResult("游鱼星");
+    appStore.fetchSearchResult(content);
   };
   const handleClear = () => {
     appStore.clearHistory();
@@ -33,9 +33,10 @@ const Search: React.FC = () => {
     if (iscover) appStore.addHistory(c);
     appStore.fetchSearchResult(c);
   };
+  //console.log(appStore.searchResult)
   const mapSearchItem = (result: SearchResult, index: number) => {
     const handleClick = () => {
-      appStore.clearSearchResult();
+     // appStore.clearSearchResult();
       history.push(`/${result.type}/${result.info}`);
     };
     return (

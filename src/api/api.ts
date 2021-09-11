@@ -21,6 +21,7 @@ export const apiGet = (path: string, data: Record<string, string | number>, conf
     path += "?" + paramStrs.join("&");
   }
   config.method = "GET";
+  config.credentials = "include";
   return apiFetch(path, {}, config);
 };
 

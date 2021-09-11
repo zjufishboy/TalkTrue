@@ -13,8 +13,14 @@ import { Model } from "@/component/model";
 import { TTRank } from "@/biz-component/tt-rank";
 import { ModelForTeacher } from "@/biz-component/tt-model";
 import { useStore } from "@/store/rootStore";
+import { useParams } from "react-router-dom";
+import {reqTeacherById} from "@/api"
 
-const classInfo: ClassInfo[] = [
+interface PathParams {
+  teacherID: string
+}
+
+/* const classInfo: ClassInfo[] = [
   {
     name: "言果课程教程",
     score: 4.9,
@@ -30,7 +36,7 @@ const classInfo: ClassInfo[] = [
     score: 5.0,
     classId: 4,
   },
-];
+]; */
 
 const commets: CommentsInfo[] = [
   {
@@ -83,13 +89,42 @@ const mockComment =
 
 const Teacher: React.FC = () => {
   const { appStore } = useStore();
+  
+
   React.useEffect(() => {
     appStore.setPageNow(PAGE.PAGE_TEACHER);
     document.title = i18n.intl(appStore.pageNow, { name: "游鱼星" });
   });
-  // const { teacherID } = useParams();
-  const teacherInfo = { name: "游鱼星", college: "计算机学院" };
+
+  React.useEffect(()=>{
+    const getTeacher = async () => {
+      const result = await reqTeacherById(teacherID);
+    //  console.log(result)
+     // console.log(typeof result.courses[0].avg_score)
+    //  console.log(typeof result.courses[0].id)
+      setteacherInfo(result)
+    }
+    getTeacher()
+  },[])
+
+  const { teacherID } = useParams() as PathParams;
+  //const teacherInfo = { name: "游鱼星", college: "计算机学院" };
   const [isClass, setIsClass] = useState(true);
+  const [teacherInfo, setteacherInfo] = useState({
+    id:'',
+    name:'',
+    college:'',
+    avg_score:'',
+    courses:[
+      {
+        name: "",
+        avg_score:4.9,
+        classId: 0,
+      },
+    ]
+  })
+  
+  //控制【打分】组件的显示与隐藏
   const [visable, setVisble] = React.useState(false);
   const handleCancel = () => {
     setVisble(false);
@@ -100,6 +135,7 @@ const Teacher: React.FC = () => {
 
   return (
     <>
+      {/* 打分组件 */}
       <ModelForTeacher
         name={teacherInfo.name}
         visable={visable}
@@ -113,10 +149,11 @@ const Teacher: React.FC = () => {
               <div className="teacherInfoName">{teacherInfo.name}</div>
               <div className="teacherInfoCollage">{teacherInfo.college}</div>
             </div>
-            <div className="teacherScore">3.9</div>
+            <div className="teacherScore">{teacherInfo.avg_score}</div>
           </div>
           <div className="teacherOwnerComment">
             <div className="ownerCommentDiv">{mockComment}</div>
+            {/* 画笔图标 */}
             <div
               className="ownerComment"
               onClick={() => {
@@ -130,9 +167,8 @@ const Teacher: React.FC = () => {
         <div className="ttTeacherComment">
           <div className="ttTeacherCommentOrState">
             <div
-              className={`ttTeacherCommentOrStateItem ttTeacherComment${
-                isClass ? "On" : "Off"
-              }`}
+              className={`ttTeacherCommentOrStateItem ttTeacherComment${isClass ? "On" : "Off"
+                }`}
               onClick={() => {
                 setIsClass(true);
               }}
@@ -140,9 +176,8 @@ const Teacher: React.FC = () => {
               课程
             </div>
             <div
-              className={`ttTeacherCommentOrStateItem ttTeacherComment${
-                !isClass ? "On" : "Off"
-              }`}
+              className={`ttTeacherCommentOrStateItem ttTeacherComment${!isClass ? "On" : "Off"
+                }`}
               onClick={() => {
                 setIsClass(false);
               }}
@@ -152,12 +187,12 @@ const Teacher: React.FC = () => {
           </div>
           <div className="ttTeacherList">
             {isClass
-              ? classInfo.map((cls: ClassInfo, index: number) => (
-                  <ClassItem classInfo={cls} key={index} />
-                ))
+              ? teacherInfo.courses.map((cls: ClassInfo, index: number) => (
+                <ClassItem classInfo={cls} key={index} />
+              ))
               : commets.map((comment: CommentsInfo, index: number) => (
-                  <CommentItem comment={comment} key={index} />
-                ))}
+                <CommentItem comment={comment} key={index} />
+              ))}
           </div>
         </div>
       </div>
